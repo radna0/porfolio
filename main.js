@@ -63,7 +63,7 @@ const gridHelper = new THREE.GridHelper(200,50)
 scene.add(lightHelper,gridHelper)
 
 
-// const controls = new OrbitControls(camera, renderer.domElement)
+const controls = new OrbitControls(camera, renderer.domElement)
 
 const clock = new THREE.Clock()
 function animate() {
@@ -71,8 +71,8 @@ function animate() {
   if (mixer)
       mixer.update(clock.getDelta())
   
-  // console.log(controls)
-  // controls.update()
+  console.log(controls)
+  controls.update()
   renderer.render(scene,camera)
 }
 
