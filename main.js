@@ -16,10 +16,14 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
-camera.position.x = 15
-camera.position.y = 40
-camera.position.z = -20
-
+// x: -6.563169942883159, y: 34.311330683740664, z: -0.3769711269162619
+camera.position.x = -6
+camera.position.y = 34
+camera.position.z = 0
+//  _x: -1.5757808574177556, _y: -0.4244012505830198, _z: -1.5829008152822917
+camera.rotation.x = - pi / 2
+camera.rotation.y = -0.5
+camera.rotation.z = - pi / 2
 renderer.setClearColor( 0xffffff, 0);
 
 const laptop = new URL("./assets/laptop/laptop.glb", import.meta.url)
@@ -59,7 +63,7 @@ const gridHelper = new THREE.GridHelper(200,50)
 scene.add(lightHelper,gridHelper)
 
 
-const controls = new OrbitControls(camera, renderer.domElement)
+// const controls = new OrbitControls(camera, renderer.domElement)
 
 const clock = new THREE.Clock()
 function animate() {
@@ -67,7 +71,8 @@ function animate() {
   if (mixer)
       mixer.update(clock.getDelta())
   
-  controls.update()
+  // console.log(controls)
+  // controls.update()
   renderer.render(scene,camera)
 }
 
