@@ -1,4 +1,4 @@
-
+import { laptopLid } from "./main"
 
 export const handleLoadScreen = () => {
     setTimeout(() => {
@@ -13,9 +13,10 @@ export const handleLoadScreen = () => {
 }
 
 const handleOnScrollOnce = (e) => {
-    console.log(e.deltaY)
     if (e.deltaY > 0) {
         window.removeEventListener("wheel", handleOnScrollOnce)
+        console.log("wheeldown")
+
     }
 
 }
