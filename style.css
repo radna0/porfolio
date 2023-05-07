@@ -8,6 +8,7 @@
   --night: #121619ff;
   --ash-gray: #cad2c5ff; 
   --red-cmyk: #F58B90; 
+  --red-red: #e50914ff; 
 }
 
 .darkTheme{
@@ -112,6 +113,9 @@ h5 {
 }
 .flexBox{
   margin: 2rem
+}
+.bold {
+  font-weight: 600;
 }
 
 
@@ -271,9 +275,35 @@ h5 {
   color: #7C8594
 }
 
+.orangeHover {
+    margin-top: 2rem;
+    background-color: var(--red-cmyk);
+    background-image: radial-gradient(circle at center, var(--red-red) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    transition: background-size 300ms;
+    background-size: 0 0;
+    background-position: 50% 50%;
+}
+.orangeHover:hover{
+  background-size: 200% 200%;
+}
+.bigButton {
+    padding: 13px 34px;
+    border-radius: 26px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    width: max-content;
+}
+
 #info {
   position: relative;
 }
+
+
+
+
 
 
 .aboutTitle{
@@ -281,7 +311,6 @@ h5 {
   color: var(--ash-gray);
 }
 .aboutTitle h1 {
-  font-weight: 600;
   text-transform: capitalize;
   margin: 2rem;
 }
