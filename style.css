@@ -1,6 +1,28 @@
 /* --night: #121619ff;
 --ash-gray: #cad2c5ff; 
 --red-cmyk: #e50914ff; */
+:root{
+  /* Light Theme Variables */
+  --color-text-light: #333332;
+  --color-background-light: #FAF4E5;
+  --color-blue-light: #8395CD;
+
+  /* Dark Theme Variables */
+  --color-text-dark: #FAF4E5;
+  --color-background-dark: #8395CD;
+}
+
+.darkTheme{
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-blue-light);
+  --color-pink: var(--color-text-light);
+}
+
+.lightTheme{
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-pink: var(--color-text-light);
+}
 
 * {
   margin: 0;
@@ -15,13 +37,10 @@ html {
   font-family: 'Lausanne';
 }
 
-body {
-  text-size-adjust: 100%;
-  text-rendering: optimizeSpeed;
-  min-height: 100%;
-  scroll-behavior: smooth;
-  overscroll-behavior: none;
+body{
   overflow: hidden;
+  transition: overflow 0.5s ease;
+  color: #cad2c5
 }
 
 canvas{
@@ -29,6 +48,7 @@ canvas{
   top: 0;
   left: 0;
 }
+
 
 h1,
 h2,
@@ -66,9 +86,6 @@ h2 {
   justify-content: center;
 }
 
-.anim {
-  overflow: hidden;
-}
 
 .row {
   display: flex;
@@ -80,28 +97,16 @@ h2 {
   flex-direction: column;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
 
-/* Hide scrollbar for IE, Edge and Firefox */
-html,
-body {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
+
 
 .loading-svg path {
-    fill: #0D0E13;
+    fill: #121619;
 }
 
 .loading-container svg {
     height: 7.5vw;
-    background: #E4E0DB;
+    background: #cad2c5;
 }
 
 .loading-container rect {
@@ -110,7 +115,7 @@ body {
 }
 
 .loading-container {
-    background: #0D0E13;
+    background: #121619;
     width: 100%;
     position: absolute;
     top: 0;
@@ -123,4 +128,93 @@ body {
 
 .loading-transition {
     transition: .9s cubic-bezier(.6, 0, 0.25, 1);
+}
+
+
+#contentContainer{
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+
+
+.toggleBar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.sunWrapper, 
+.moonWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.toggleButton{
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-pink);
+  border-radius: 999px;
+  margin: 0px 16px;
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.toggleCircle{
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-background);
+  transition: all 0.2s ease-in-out;
+}
+
+.toggleButton:hover .toggleCircle{
+  transform: scale(0.9);
+}
+.slide{
+  left: 31px;
+}
+
+
+.arrowSVGWrapper{
+  z-index: 10;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  color: #333332;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+  animation: bounce 0.6s ease-in alternate infinite;
+}
+
+
+.arrowSVGWrapper svg{
+  width:  5rem;
+  height: 5rem;
+}
+@keyframes bounce {
+  0%{
+    transform: translateY(0)
+  }
+
+  100%{
+    transform: translateY(1.5rem)
+  }
 }
