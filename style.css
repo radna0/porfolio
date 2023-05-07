@@ -102,6 +102,10 @@ h5 {
   color:  var(--red-cmyk)
 }
 
+.boldHighlight{
+  color:  var(--red-red)
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -313,23 +317,106 @@ h5 {
 .aboutTitle h1 {
   text-transform: capitalize;
   margin: 2rem;
+  transition: all 0.5s ease;
 }
 .profilePic {
-    border-radius: 10%;
-    width: 30rem;
-    transition: all 0.5s ease;
+  border-radius: 10%;
+  width: 30rem;
 }
 .profilePic:hover {
   transform: scale(1.1); 
 }
 .aboutProfile {
+  opacity: 0;
   width: 40vw;
-  
+  transition: all 0.5s ease;
 }
 .aboutInfo{
+  opacity: 0;
   width: 40vw;
   line-height: 1.5;
+  transition: all 0.5s ease;
 }
 .aboutInfo p {
+  width: 40vw;
   margin: 1rem;
+}
+
+@keyframes aboutProfileSlide {
+  0%{
+    opacity: 0;
+    padding-right: 5rem;
+  }
+  
+  100%{
+    opacity: 1;
+    padding-right: 0;
+  }
+}
+@keyframes aboutInfoSlide {
+  0%{
+      opacity: 0;
+      padding-left: 5rem;
+  }
+    
+  100%{
+      opacity: 1;
+      padding-left: 0;
+  }
+}
+
+
+
+.projectsTitle{
+  margin: 2.5vh 0 2.5vh 10vw
+}
+
+.projectsDisplay{
+  flex-wrap: wrap;
+}
+
+.projectBox{
+  opacity: 0;
+  background-color: white;
+  border-radius: 1rem;
+  color: var(--night);
+  margin: 2rem;
+  cursor: pointer;
+  transition: all .3s ease;
+  width: 20vw;
+  box-shadow: 0 0 25px var(--red-cmyk);
+}
+.projectBox:hover{
+  box-shadow: 0 0 25px var(--red-red);
+  background-color: var(--night);
+  color: white;
+}
+
+@keyframes projectBoxSlide {
+  0%{
+      opacity: 0;
+      margin-top: 5rem;
+    }
+    
+    100%{
+      opacity: 1;
+      margin-top: 2rem;
+  }
+}
+
+
+
+.projectBoxDisplay{
+  width: 100%;
+}
+.projectBoxDisplay img {
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.projectBoxInfo{
+  padding: 1rem;
+}
+
+.contactTitle{
+  margin: 2rem
 }

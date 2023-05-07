@@ -1,5 +1,6 @@
 import './style.css'
 import * as THREE from 'three';
+import "./js/animation"
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
 import { handleLoadScreen, handleOnScrollOnce } from './js/utilities';
 import { OrbitControls} from "three/examples/jsm/controls/OrbitControls"
