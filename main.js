@@ -1,7 +1,7 @@
 import './style.css'
 import * as THREE from 'three';
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
-import { handleLoadScreen, handleOnScrollOnce } from './utilities';
+import { handleLoadScreen, handleOnScrollOnce } from './js/utilities';
 import { OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 
 export const device = window.innerWidth < 968 ? "mobile" : "desktop"
@@ -37,7 +37,7 @@ assetLoader.load(room.href, (gltf) => {
   scene.add(model)
   device == "desktop" ? model.scale.set( 20, 20, 20) :  model.scale.set( 15, 15, 15) 
   model.position.set(0, 40, 0)
-  
+
 })
 export var laptopLid
 assetLoader.load(laptop.href, (gltf) => {
@@ -48,7 +48,6 @@ assetLoader.load(laptop.href, (gltf) => {
   model.scale.set( 1, 1, 1) 
   device == "desktop" ? model.position.set(-13,4,1.5) :  model.position.set(-13,8,1.5)
 })
-
 
 
 var lastX, lastY

@@ -2,14 +2,12 @@
 --ash-gray: #cad2c5ff; 
 --red-cmyk: #e50914ff; */
 :root{
-  /* Light Theme Variables */
   --color-text-light: #333332;
   --color-background-light: #FAF4E5;
   --color-blue-light: #8395CD;
-
-  /* Dark Theme Variables */
-  --color-text-dark: #FAF4E5;
-  --color-background-dark: #8395CD;
+  --night: #121619ff;
+  --ash-gray: #cad2c5ff; 
+  --red-cmyk: #F58B90; 
 }
 
 .darkTheme{
@@ -34,7 +32,7 @@
 html {
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Lausanne';
+  font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -58,15 +56,23 @@ h5 {
   font-weight: 400;
 }
 
-h1 {
-  font-size: 17.36111vw;
-  line-height: 16vw;
-  font-weight: 300 !important;
+
+.large {
+  font-size: 5vw;
+}
+.medium {
+  font-size: 3vw;
+}
+.small {
+  font-size: 2vw;
+}
+.tiny {
+  font-size: 1vw;
 }
 
-h2 {
-  font-size: 10vw;
-  font-weight: 300 !important;
+
+.light {
+  font-weight: 200;
 }
 
 .icon {
@@ -80,12 +86,20 @@ h2 {
   max-width: 84vw;
 }
 
-.center {
+.flex {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
+.center {
+  align-items: center;
+}
+.top {
+  align-items: start;
+}
 
+.highlight{
+  color:  var(--red-cmyk)
+}
 
 .row {
   display: flex;
@@ -96,26 +110,28 @@ h2 {
   display: flex;
   flex-direction: column;
 }
-
+.flexBox{
+  margin: 2rem
+}
 
 
 
 .loading-svg path {
-    fill: #121619;
+    fill: var(--night);
 }
 
 .loading-container svg {
     height: 7.5vw;
-    background: #cad2c5;
+    background: var(--ash-gray);
 }
 
 .loading-container rect {
-    fill: #38383B;
+    fill: var(--night);
     transition: 2s;
 }
 
 .loading-container {
-    background: #121619;
+    background: var(--night);
     width: 100%;
     position: absolute;
     top: 0;
@@ -198,7 +214,7 @@ h2 {
   position: absolute;
   bottom: 5%;
   left: 50%;
-  color: #333332;
+  color: var(--night);
   transition: all 0.5s ease;
   transform: translate(-50%, -50%);
   animation: bounce 0.6s ease-in alternate infinite;
@@ -217,4 +233,74 @@ h2 {
   100%{
     transform: translateY(1.5rem)
   }
+}
+
+
+.sectionContainer{
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+
+.homeTitle{ 
+  z-index: 10;
+  margin: 2rem;
+  position: absolute;
+	top: 20%;
+  left: 20%;
+	display:block;
+  transition: all 1s ease;
+}
+@keyframes homeTitleSlide {
+  0%{
+    opacity: 0;
+    left: 10%;
+  }
+  
+  100%{
+    opacity: 1;
+    left: 20%;
+  }
+}
+.homeTitle h1{
+  line-height: 0.85;
+}
+.homeTitle h2{
+  margin: 1rem 0 0 0.5rem;
+  color: #7C8594
+}
+
+#info {
+  position: relative;
+}
+
+
+.aboutTitle{
+  background-color: var(--night);
+  color: var(--ash-gray);
+}
+.aboutTitle h1 {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 2rem;
+}
+.profilePic {
+    border-radius: 10%;
+    width: 30rem;
+    transition: all 0.5s ease;
+}
+.profilePic:hover {
+  transform: scale(1.1); 
+}
+.aboutProfile {
+  width: 40vw;
+  
+}
+.aboutInfo{
+  width: 40vw;
+  line-height: 1.5;
+}
+.aboutInfo p {
+  margin: 1rem;
 }

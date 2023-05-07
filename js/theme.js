@@ -1,4 +1,4 @@
-import { scene } from "./main"
+import { scene } from "../main"
 import * as THREE from 'three';
 import GSAP from "gsap";
 

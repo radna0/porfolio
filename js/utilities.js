@@ -1,4 +1,4 @@
-import { camera, handleMoveCamera, laptopLid, pi, scene } from "./main"
+import { camera, handleMoveCamera, laptopLid, pi, scene } from "../main"
 import GSAP from "gsap";
 export const handleLoadScreen = () => {
     return new Promise((resolve) => {
@@ -72,25 +72,22 @@ const animateIntro = () => {
             {
                 x: camera.position.x - 28,
                 ease:"power1.out",
-                duration: 1
+                duration: 1,
+                onComplete: async () => {
+                    document.body.style.backgroundColor = "#121619"
+                    document.querySelector("#bg").style.transition = "all 0.5s ease"
+                    document.querySelector("#bg").style.opacity = 0
+                    // document.querySelector("#bg").onClick = () =>  false
+                    await removeObject()
+                    document.querySelector("#container").style.display = "none"
+                    document.querySelector("#contentContainer").style.opacity = "1"
+                    document.querySelector(".homeTitle").style.animation = "homeTitleSlide 1s ease"
+                    document.querySelector("#contentContainer").style.pointerEvents = "all"
+                    document.body.style.overflow = "auto"
+                    resolve()
+                }
             }
             )
-            .to(
-                "#bg",
-                {
-                    onComplete: async () => {
-                        document.body.style.backgroundColor = "#121619"
-                        document.querySelector("#bg").style.transition = "all 0.5s ease"
-                        document.querySelector("#bg").style.opacity = 0
-                        // document.querySelector("#bg").onClick = () =>  false
-                        await removeObject()
-                        document.querySelector("#contentContainer").style.opacity = "1"
-                        document.querySelector("#contentContainer").style.pointerEvents = "all"
-                        document.body.style.overflow = "auto"
-                        resolve()
-                    }
-                }
-                )
             })
         }
         

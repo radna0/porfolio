@@ -8,7 +8,9 @@
     <title>Bach HG</title>
   </head>
   <body class="lightTheme">
-    <div id="container" class="loading-container center loading-transition" >
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+    <div id="container" class="loading-container flex center loading-transition" >
         <svg id="svg" viewBox="0 0 108 106" class="loading-transition" xmlns="http://www.w3.org/2000/svg" data-v-76b59a5e="" >
             <rect id="rect" x="0" y="0" width="108" height="106" ></rect>
  
@@ -32,35 +34,70 @@
     </div>
     <canvas id="bg" ></canvas>
     <div id="contentContainer">
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
+      <div class="section home">
+        <div class="sectionContainer flex center">
+          <div class="homeTitle">
+            <h1 class="large">Hi, my</h1>
+            <h1 class="large">name is Bach.</h1>
+            <h2 class="tiny light">Software Engineer</h2>
+          </div>
+          <canvas id="info"></canvas>
+        </div>
+        
+      </div>
+      <div class="section about">
+        <div class="sectionContainer">
+          <div class=" flex top aboutTitle">
+            <h1 class="medium ">Get To <span class="highlight">Know</span> Me</h1>
+          </div>
+          <div class="flex row center">
+            <div class="flexBox aboutProfile flex center">
+              <img class="profilePic" src="./public/me.jpg" alt="">
+            </div>
+            <div class="flexBox aboutInfo">
+              <p class="tiny">
+                  I'm <span class="highlight">Bach</span>, an aspiring <span class="highlight">software engineer</span> in the early stages of my career with a relentless passion for learning. <span class="highlight">I actively seek out new challenges and opportunities to enhance my skillset</span> while delving into the intricacies of servers, API communication, and crafting captivating user interfaces. I thrive on the exhilaration of solving complex problems and staying abreast of cutting-edge technologies.
+              </p>
+              <p class="tiny">
+                  My journey into programming commenced just a year and a half ago during my high school years. As an avid gamer, the desire to create my own games took hold of me, leading me to explore Unity. I vividly recall my early experiments with simple physics, an experience that ignited an unwavering passion within me.
+              </p>
+              <p class="tiny">
+                  Since then, I have embarked on diverse <span class="highlight">projects</span>, both for personal fulfillment and recreation. Additionally, I gained valuable industry experience by working with a dynamic <span class="highlight">startup</span>, where I contributed to the development of scalable web applications. Enrolling in a software engineering academy, I collaborated with my peers to build a substantial project. Currently, my voracious appetite for knowledge encompasses everything from emerging <span class="highlight">JavaScript</span> frameworks to unexplored languages such as Go, Rust, and Swift. I am equally fascinated by functional programming languages like Elixir and Haskell, as well as furthering my expertise in Linux and operating systems.
+              </p>
+              <p class="tiny">
+                  As I continue to evolve in my career, I eagerly embrace opportunities to share my insights and experiences through engaging content on platforms like LinkedIn, YouTube, and other social media channels. I warmly invite you to reach out for connections or collaborations, as I am always enthusiastic about discussing novel ideas and embarking on exciting new ventures.
+              </p>
+
+                <!-- <p class="tiny">
+                  I’m <span class="highlight">Bach</span>, an aspiring <span class="highlight">software engineer</span> in the early stages of my career with a passion for learning. <span class="highlight">I am constantly seeking out new challenges and opportunities to enhance my skillset.</span> From diving into the intricacies of servers and API communication, to creating beautiful user interfaces, or tackling complex data structures and algorithms, I am driven by the thrill of solving complex problems and learning new technologies.
+                <p class="tiny">
+                  I got into programming one and a half years ago, at the time, I just got into high school and started thinking seriously about what I want to do in my life, what career I want to pick. I was really into playing games and suddenly thought to myself, I'd love to make my own games, and so I digged into researching and stumbled upon Unity, I then tried to do simple physics and was absolutely in love with it ever since.
+                </p>
+                <p class="tiny">
+                  Since then, I have built <span class="highlight">projects</span> for fun and also for myself, had a chance to work for a <span class="highlight">startup</span>, enrolled in a software engineering academy and built a large project with my friends. Nowadays, I'm interested in everything, from new <span class="highlight">JavaScript</span> frameworks, new languages I have not learnt like Go, Rust, Swift, functional programming languages that I want to know more like Elixir and Haskell, or learning more about linux, operating systems. Or in short, everything!
+                </p>
+                <p class="tiny">
+                  As I continue to grow my career, I am also eager to share my knowledge and experiences through content creation on platforms such as LinkedIn, YouTube, and other social media. If you are interested in connecting or collaborating, please don't hesitate to reach out to me. I am always open to discussing exciting new opportunities and ideas.
+                </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section skills">
+        <div class="sectionContainer flex center"></div>
+      </div>
+      <div class="section projects">
+        <div class="sectionContainer flex center"></div>
+      </div>
+      <div class="section contact">
+        <div class="sectionContainer flex center"></div>
+      </div>
     </div>
+      </div>
+      </div>
     <script type="module" src="/main.js"></script>
-    <script type="module" src="/theme.js"></script>
+    <script type="module" src="./js/theme.js"></script>
+    <script type="module" src="./js/info.js"></script>
+    <script type="module" src="./js/animation.js"></script>
   </body>
 </html>
