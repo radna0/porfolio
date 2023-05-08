@@ -95,7 +95,7 @@ const removeObject = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             const allObjects = scene.children
-            scene.children = []
+            // scene.children = []
             document.querySelector("#bg").style.display = "none"
             resolve()
         }, 1000)

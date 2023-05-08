@@ -6,6 +6,7 @@
   --color-background-light: #FAF4E5;
   --color-blue-light: #8395CD;
   --night: #121619ff;
+  --dark: rgb(11, 14, 16);
   --ash-gray: #cad2c5ff; 
   --red-cmyk: #F58B90; 
   --red-red: #e50914ff; 
@@ -57,18 +58,22 @@ h5 {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
 
 .large {
-  font-size: 5vw;
+  font-size: 5rem;
 }
 .medium {
-  font-size: 3vw;
+  font-size: 3rem;
 }
 .small {
-  font-size: 2vw;
+  font-size: 2rem;
 }
 .tiny {
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 
@@ -122,6 +127,55 @@ h5 {
   font-weight: 600;
 }
 
+.title {
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+.diff{
+  background-color: var(--dark);
+}
+
+.redirectButton {
+    margin-top: 2rem;
+    background-color: var(--red-cmyk);
+    background-image: radial-gradient(circle at center, var(--red-red) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    transition: background-size 300ms;
+    background-size: 0 0;
+    background-position: 50% 50%;
+}
+.redirectButton:hover{
+  background-size: 200% 200%;
+}
+.bigButton {
+    padding: 13px 34px;
+    border-radius: 26px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    width: max-content;
+}
+
+.largeButton {
+    padding: 13px 34px;
+    border-radius: 26px;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    width: max-content;
+}
+
+
+
+.section {
+  overflow: hidden;
+}
+
+
+
 
 
 .loading-svg path {
@@ -159,6 +213,8 @@ h5 {
   pointer-events: none;
   opacity: 0;
   transition: all 0.5s ease;
+
+  
 }
 
 
@@ -249,17 +305,33 @@ h5 {
   overflow: hidden;
   
 }
-
+@media only screen and (max-width: 1440px) {
+  .sectionContainer{
+    height: 100%;
+  }
+}
 
 .homeTitle{ 
   z-index: 10;
-  margin: 2rem;
   position: absolute;
-	top: 20%;
-  left: 20%;
+	top: 20vh;
+  left: 20vw;
 	display:block;
   transition: all 1s ease;
 }
+.homeTitle h1{
+  line-height: 0.85;
+}
+.homeTitle h2{
+  margin: 1rem 0 0 0.5rem;
+  color: #7C8594
+}
+
+#info {
+  position: relative;
+}
+
+
 @keyframes homeTitleSlide {
   0%{
     opacity: 0;
@@ -271,38 +343,18 @@ h5 {
     left: 20%;
   }
 }
-.homeTitle h1{
-  line-height: 0.85;
-}
-.homeTitle h2{
-  margin: 1rem 0 0 0.5rem;
-  color: #7C8594
-}
 
-.orangeHover {
-    margin-top: 2rem;
-    background-color: var(--red-cmyk);
-    background-image: radial-gradient(circle at center, var(--red-red) 50%, transparent 50%);
-    background-repeat: no-repeat;
-    transition: background-size 300ms;
-    background-size: 0 0;
-    background-position: 50% 50%;
-}
-.orangeHover:hover{
-  background-size: 200% 200%;
-}
-.bigButton {
-    padding: 13px 34px;
-    border-radius: 26px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    width: max-content;
-}
-
-#info {
-  position: relative;
+@media only screen and (max-width: 768px) {
+  .homeTitle{
+    top: 10vh;
+    left: 10vw;
+  }
+  .homeTitle h1{
+    font-size: 4rem;
+  }
+  .homeTitle h2{
+    font-size: 1.5rem;
+  }
 }
 
 
@@ -316,12 +368,15 @@ h5 {
 }
 .aboutTitle h1 {
   text-transform: capitalize;
-  margin: 2rem;
   transition: all 0.5s ease;
+}
+.aboutContent{
+  flex-wrap: wrap;
 }
 .profilePic {
   border-radius: 10%;
-  width: 30rem;
+  width: 30vw;
+  transition: all 0.3s ease;
 }
 .profilePic:hover {
   transform: scale(1.1); 
@@ -355,13 +410,87 @@ h5 {
 }
 @keyframes aboutInfoSlide {
   0%{
-      opacity: 0;
-      padding-left: 5rem;
+    opacity: 0;
+    padding-left: 5rem;
   }
     
   100%{
+    opacity: 1;
+    padding-left: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .aboutContent{
+    flex-direction: column;
+  }
+  .profilePic {
+    width: 50vw;
+  }
+  .aboutProfile{
+    width: 0;
+  }
+  .aboutInfo{
+    width: 80vw;
+  }
+  .aboutInfo p {
+    width: 80vw;
+    font-size: 2.5vw;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.skillsDisplay{
+  flex-wrap: wrap;
+}
+.skillsDisplay img {
+  width: 5rem;
+  padding:1rem; 
+  background-color: white;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+@keyframes IconSlide {
+    0%{
+      opacity: 0;
+      margin-top: 3rem;
+    }
+    
+    100%{
       opacity: 1;
-      padding-left: 0;
+      margin-top: 1rem;
+  }
+}
+
+.goalsTitle{
+  margin-top: 6rem;
+}
+.myResume{
+    margin-top: 4rem;
+    text-align: center;
+}
+
+@keyframes myResumePop {
+    0%{
+      opacity: 0;
+      transform: scale(0);
+    }
+    
+    100%{
+      opacity: 1;
+      transform: scale(1);
   }
 }
 
@@ -392,6 +521,7 @@ h5 {
   color: white;
 }
 
+
 @keyframes projectBoxSlide {
   0%{
       opacity: 0;
@@ -404,8 +534,6 @@ h5 {
   }
 }
 
-
-
 .projectBoxDisplay{
   width: 100%;
 }
@@ -417,6 +545,70 @@ h5 {
   padding: 1rem;
 }
 
+@media only screen and (max-width: 1440px) {
+  .projectBox{
+    width: 40vw;
+  }
+  .projectBoxDisplay img {
+    height: 30vw;
+  }
+}
+
+@media only screen and (max-width: 646px) {
+  .projectBox{
+    width: 80vw;
+  }
+  .projectBoxDisplay img {
+    height: 50vw;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 .contactTitle{
   margin: 2rem
+}
+.contactContent{
+ margin-bottom: 2rem; 
+}
+.contactDisplay{
+  margin: 0 2vw 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.contactDisplay:hover  a img{
+  background-color: var(--color-blue-light);
+  transform: scale(1.3);
+}
+.contactDisplay:hover  a svg{
+  background-color: var(--color-blue-light);
+  transform: scale(1.3);
+
+}
+
+.contactDisplay a img,
+.contactDisplay a svg{
+  width: 5rem;
+  height: 5rem;
+  padding:1rem; 
+  background-color: white;
+  border-radius: 1rem;
+  margin: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 646px) {
+  .contactContent{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

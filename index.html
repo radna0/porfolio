@@ -36,11 +36,15 @@
     <div id="contentContainer">
       <div class="section home">
         <div class="sectionContainer flex center">
-          <div class="homeTitle">
+          <div class="homeTitle title">
             <h1 class="large">Hi, my</h1>
             <h1 class="large">name is Bach.</h1>
-            <h2 class="tiny light">Software Engineer</h2>
-            <div class="bigButton orangeHover">Get in touch</div>
+            <h2 class="small light">Software Engineer</h2>
+            <a href="#contact">
+            <div class="bigButton redirectButton">
+                Get in touch
+              </div>
+            </a>
           </div>
           <canvas id="info"></canvas>
         </div>
@@ -48,10 +52,10 @@
       </div>
       <div class="section about">
         <div class="sectionContainer">
-          <div class=" flex top aboutTitle">
+          <div class=" flex top aboutTitle title">
             <h1 class="medium bold">Get To <span class="boldHighlight">Know</span> Me</h1>
           </div>
-          <div class="flex row center">
+          <div class="aboutContent flex row center">
             <div class="flexBox aboutProfile flex center">
               <img class="profilePic" src="./public/me.jpg" alt="">
             </div>
@@ -84,16 +88,76 @@
           </div>
         </div>
       </div>
-      <div class="section skills">
+      <div class="section skills diff">
         <div class="sectionContainer">
-          <div class=" flex top skillsTitle">
+          <div class=" flex top skillsTitle title">
             <h1 class="medium bold">Skills</h1>
+          </div>
+          
+          <div class="skillsContent">
+            <div class="flex skillsDisplay" >
+              <img  alt="JavaScript"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+              <img  alt="TypeScript"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
+              <img  alt="Python"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+              <img  alt="PHP"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" />
+              <img  alt="React"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+              <img  alt="Next"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
+              <img  alt="Threejs"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" />
+              <img  alt="Redux"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+              <img  alt="NodeJS"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+              <img  alt="GraphQL"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" />
+              <img  alt="Firebase"  src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg"/>
+              <img  alt="MySQL"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
+              <img  alt="PostgreSQL"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" />
+              <img  alt="MongoDB"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" />
+              <img  alt="VsCode"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
+              <img  alt="git"  src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"/>
+              <img  alt="HTML"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
+              <img  alt="CSS"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
+              <img  alt="bootstrap"  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" />
+              <img  alt="tailwindcss"   src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"  />
+              <img  alt="jquery"   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original-wordmark.svg"  />
+              <img  alt="docker"  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg"/>
+              <img  alt="figma"  src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg"/>
+              <img  alt="mochajs"   src="https://www.vectorlogo.zone/logos/mochajs/mochajs-icon.svg" />
+              <img  alt="jestjsio"   src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg"/>
+              <img  alt="getpostman"   src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"/>
+              <img  alt="Bash"   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
+            </div>
+          </div>
+          <div class=" flex top goalsTitle title">
+            <h1 class="medium bold">2023 Goals</h1>
+          </div>
+          
+          <div class="goalsContent">
+            <div class="flex skillsDisplay" >
+              <img alt="rust" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" />
+              <img alt="go" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" />
+              <img alt="java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+              <img alt="elixir" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg" />
+              <img alt="haskell" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" />
+              <img alt="swift" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" />
+              <img alt="kotlin" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" />
+              <img alt="svelte" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" />
+              <img alt="ubuntu" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" />
+              <img alt="nixos" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nixos/nixos-original.svg" />
+              <img alt="vim" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" />
+              <img alt="linux" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" />
+              <img alt="blender" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" />
+            </div>
+          </div>
+          <div class=" flex center title">
+            <h1 class="medium bold myResume largeButton redirectButton">
+              <a target="_blank" href="https://drive.google.com/file/d/1aaGIhDjKEOfAfeeJYMXlddjz9K_9bbWe/view?usp=sharing">
+               My Resume
+              </a>
+            </h1>
           </div>
         </div>
       </div>
       <div class="section projects">
         <div class="sectionContainer column">
-          <div class=" projectsTitle">
+          <div class=" projectsTitle title">
             <h1 class="medium bold">Some Things</h1>
             <h1 class="medium bold">I've worked on</h1>
           </div>
@@ -182,12 +246,33 @@
 
         </div>
       </div>
-      <div class="section contact">
-        <div class="sectionContainer">
-          <div class=" flex top contactTitle">
+      <div id="contact" class="section contact diff">
+        <div class="">
+          <div class=" flex top contactTitle title">
             <h1 class="medium bold">Contact</h1>
           </div>
-          
+          <div class="flex row contactContent">
+            <div class="contactDisplay">
+              <a  href="https://www.linkedin.com/in/bach-hg" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+              </a>
+            </div>
+            <div class="contactDisplay">
+              <a  href="mailto:giabach.hoang@arol.dev" target="_blank">
+                <img src="https://cdn.cdnlogo.com/logos/g/24/gmail-icon.svg" />
+              </a>
+            </div>
+            <div class="contactDisplay">
+              <a  href="tel:+84-96-353-8365" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M260 1016q-24 0-42-18t-18-42V196q0-24 18-42t42-18h440q24 0 42 18t18 42v760q0 24-18 42t-42 18H260Zm0-150v90h440v-90H260Zm220.175 75q12.825 0 21.325-8.675 8.5-8.676 8.5-21.5 0-12.825-8.675-21.325-8.676-8.5-21.5-8.5-12.825 0-21.325 8.675-8.5 8.676-8.5 21.5 0 12.825 8.675 21.325 8.676 8.5 21.5 8.5ZM260 806h440V286H260v520Zm0-580h440v-30H260v30Zm0 640v90-90Zm0-640v-30 30Z"/></svg>
+              </a>
+            </div>
+            <div class="contactDisplay">
+              <a  href="https://github.com/radna0" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+              </a> 
+            </div>
+          </div>
         </div>
       </div>
     </div>
