@@ -2,7 +2,8 @@ import './style.css'
 import * as THREE from 'three';
 import "./js/animation"
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
-import { handleLoadScreen, handleOnScrollOnce } from './js/utilities';
+
+import {  handleOnScrollOnce } from './js/utilities';
 import { OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 
 export const device = window.innerWidth < 968 ? "mobile" : "desktop"
@@ -16,18 +17,26 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setClearColor( 0xcad2c5, 0);
 
-camera.position.set(28,35,25)
-device == "desktop" ? camera.rotation.set(0, 0.95, 0):camera.rotation.set(0, 0.84, 0)
+device == "desktop" ? camera.position.set(28,35,25)  :  camera.position.set(28,39,25)
+device == "desktop" ? camera.rotation.set(0, 0.95, 0) : camera.rotation.set(0, 0.84, 0)
 
 
 const laptop = new URL("./assets/laptop/laptop.glb", import.meta.url)
 const room = new URL("./assets/room/office.glb", import.meta.url)
 const loadingManager = new THREE.LoadingManager()
+                   
 
-document.querySelector("#rect").style.height = 0
 document.querySelector("#bg").style.opacity = 0
-loadingManager.onLoad = async() => {
-  await handleLoadScreen()
+const progressBar = document.querySelector("#progress")
+
+loadingManager.onProgress = (url, loaded, total) => {
+  progressBar.value = (loaded / total) * 100 > progressBar.value ? (loaded / total) * 100 : progressBar.value
+  
+}
+loadingManager.onLoad = async () => {
+  document.querySelector("#container").style.opacity = 0
+  document.querySelector(".arrowSVGWrapper").style.opacity = 1
+  document.querySelector(".toggleBar").style.opacity = 1
   document.querySelector("#bg").style.opacity = 1
   window.addEventListener("wheel", handleOnScrollOnce)
 }
@@ -52,27 +61,18 @@ assetLoader.load(laptop.href, (gltf) => {
 
 
 var lastX, lastY
-const rightWall = camera.rotation.y +0.05, leftWall = camera.rotation.y  -0.05
-// const botWall = (camera.rotation.x - 5 + camera.rotation.z - 5) /2
-// const topWall = (camera.rotation.x + 5 + camera.rotation.z + 5) /2
+const rightWall = device == "desktop" ? camera.rotation.y + 0.1 : camera.rotation.y + 0.5,
+  leftWall = device == "desktop" ? camera.rotation.y - 0.1 : camera.rotation.y - 0.5
+
 export const handleMoveCamera = (e) => {
   if (lastX != e.pageX) {
     let t = e.pageX > lastX ? e.pageX : e.pageX * -1
-    let newHorizon = camera.rotation.y + (t / 1000000)
+    let add = device == "desktop" ? (t / 1000000) : (t / 50000)
+    let newHorizon = camera.rotation.y + add
     if (newHorizon >= leftWall && newHorizon <= rightWall) {
       camera.rotation.y = newHorizon
     }
   }
-  // if (lastY != e.pageY) {
-  //    let t = e.pageY > lastY ? e.pageY : e.pageY * -1
-  //   let newHorizonX = (camera.rotation.x + (t / 1000000))
-  //   let newHorizonZ = (camera.rotation.z + (t / 1000000))
-  //   let newHorizon = (newHorizonX + newHorizonZ) / 2
-  //   if (newHorizon >= botWall && newHorizon <= topWall) {
-  //     camera.rotation.x = newHorizonX
-  //     camera.rotation.z = newHorizonZ
-  //   }
-  // }
   lastX = e.pageX
   lastY = e.pageY
 }

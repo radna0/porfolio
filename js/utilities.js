@@ -1,17 +1,5 @@
-import { camera, handleMoveCamera, laptopLid, pi, scene } from "../main"
+import { camera, device, laptopLid, pi, scene } from "../main"
 import GSAP from "gsap";
-export const handleLoadScreen = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            //logo transition
-            document.querySelector("#svg").style.height = '2vw'
-            document.querySelector("#svg").style.opacity = 0
-            //container transition
-            document.querySelector("#container").style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
-            resolve()
-        }, 2300)
-    })
-}
 
 export const handleOnScrollOnce = async (e) => {
     if (e.deltaY > 0) {
@@ -27,6 +15,11 @@ const animateIntro = () => {
     return new Promise((resolve) => {
         const animateTimeline = new GSAP.timeline()
         animateTimeline
+            .to(camera.rotation, {
+                y: device == "desktop" ? 0.95 : 0.84,
+                ease:"power1.out",
+                duration: 1
+        }, )
         .to(
             camera.position,
             {
@@ -34,14 +27,14 @@ const animateIntro = () => {
                 y: camera.position.y - 4,
                 z: camera.position.z - 10,
                 duration: 2
-            }
+            }, "move"
         )
         .to(
             camera.position,
             {
-                x: camera.position.x - 30,
+                x: device == "desktop" ?  camera.position.x - 30 : camera.position.x - 33,
                 y: camera.position.y - 8,
-                z: camera.position.z - 25,
+                z: device == "desktop" ? camera.position.z - 25 : camera.position.z - 26,
                 ease:"power1.out",
                 duration: 3
             },
@@ -51,7 +44,7 @@ const animateIntro = () => {
             camera.rotation,
             {
                 x: 0,
-                y: camera.rotation.y - 2.50105,
+                y: device == "desktop" ?  0.95- 2.50105 : 0.84- 2.50105,
                 z: -0.000625,
                 duration: 3,
                 ease:"power1.out",
@@ -77,16 +70,17 @@ const animateIntro = () => {
                     document.body.style.backgroundColor = "#121619"
                     document.querySelector("#bg").style.transition = "all 0.5s ease"
                     document.querySelector("#bg").style.opacity = 0
-                    // document.querySelector("#bg").onClick = () =>  false
+                    window.scrollTo({ top: document.querySelector("#contentContainer"), behavior: 'smooth'});
                     await removeObject()
                     document.querySelector("#container").style.display = "none"
-                    document.querySelector("#contentContainer").style.opacity = "1"
                     document.querySelector(".homeTitle").style.animation = "homeTitleSlide 1s ease"
                     document.querySelector("#contentContainer").style.pointerEvents = "all"
+                    document.querySelector("#contentContainer").style.height = "100%"
+                    document.querySelector("#contentContainer").style.opacity = "1"
                     document.body.style.overflow = "auto"
                     resolve()
                 }
-            }
+            }, "pivot"
             )
             })
         }

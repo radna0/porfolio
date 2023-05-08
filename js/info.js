@@ -29,13 +29,11 @@ assetLoader.load(space.href, (gltf) => {
 
 
 const handleMoveSpace = () => {
-    let lastX, lastY
+    let lastX
     let rightWall, leftWall
-    let topWalll, botWall
     const moveSpace = (e) => {
         if (!lastX) {
-            rightWall = spaceModel.rotation.y + 0.1, leftWall = spaceModel.rotation.y - 0.1
-            topWalll = camera.position.y +10, botWall = camera.position.y - 10
+            rightWall = spaceModel.rotation.y +1, leftWall = spaceModel.rotation.y - 1
         }
         if (lastX != e.pageX) {
             let t = e.pageX > lastX ? e.pageX : e.pageX * -1
@@ -44,15 +42,7 @@ const handleMoveSpace = () => {
                 spaceModel.rotation.y = newHorizon
             }
         }
-        // if (lastY != e.pageY) {
-        //     let t = e.pageY > lastY ? e.pageY* -1 : e.pageY
-        //     let newHorizon = camera.position.y + (t / 25000)
-        //     if (newHorizon >= botWall && newHorizon <= topWalll) {
-        //         camera.position.y = newHorizon
-        //     }
-        // }
         lastX = e.pageX
-        lastY = e.pageY
     }
 
     return moveSpace
