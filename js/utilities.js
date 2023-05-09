@@ -9,7 +9,13 @@ export const handleOnScrollOnce = async (e) => {
         document.querySelector(".toggleBar").style.opacity = 0
         await animateIntro()
     }
-
+}
+export const handleOnClickOnce = async (e) => {
+        window.removeEventListener("click", handleOnClickOnce)
+        document.body.onmousemove = null
+        document.querySelector(".arrowSVGWrapper").style.opacity = 0
+        document.querySelector(".toggleBar").style.opacity = 0
+        await animateIntro()
 }
 const animateIntro = () => {
     return new Promise((resolve) => {

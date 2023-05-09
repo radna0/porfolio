@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import "./js/animation"
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
-import {  handleOnScrollOnce } from './js/utilities';
+import {  handleOnClickOnce, handleOnScrollOnce } from './js/utilities';
 
 export let device = window.innerWidth < 968 ? "mobile" : "desktop"
 export const pi = Math.PI
@@ -33,7 +33,7 @@ loadingManager.onLoad = async () => {
   document.querySelector(".arrowSVGWrapper").style.opacity = 1
   document.querySelector(".toggleBar").style.opacity = 1
   document.querySelector("#bg").style.opacity = 1
-  window.addEventListener("wheel", handleOnScrollOnce)
+  device == "desktop" ? window.addEventListener("wheel", handleOnScrollOnce) : window.addEventListener("click", handleOnClickOnce)
 }
 
 const assetLoader = new GLTFLoader(loadingManager)
