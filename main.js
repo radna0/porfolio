@@ -2,33 +2,28 @@ import './style.css'
 import * as THREE from 'three';
 import "./js/animation"
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
-
 import {  handleOnScrollOnce } from './js/utilities';
-import { OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 
-export const device = window.innerWidth < 968 ? "mobile" : "desktop"
+export let device = window.innerWidth < 968 ? "mobile" : "desktop"
 export const pi = Math.PI
-export const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
+export let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
 export const scene = new THREE.Scene()
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
 })
+
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setClearColor( 0xcad2c5, 0);
-
 device == "desktop" ? camera.position.set(28,35,25)  :  camera.position.set(28,39,25)
 device == "desktop" ? camera.rotation.set(0, 0.95, 0) : camera.rotation.set(0, 0.84, 0)
 
 
-const laptop = new URL("./assets/laptop/laptop.glb", import.meta.url)
-const room = new URL("./assets/room/office.glb", import.meta.url)
-const loadingManager = new THREE.LoadingManager()
-                   
 
 document.querySelector("#bg").style.opacity = 0
 const progressBar = document.querySelector("#progress")
 
+const loadingManager = new THREE.LoadingManager()
 loadingManager.onProgress = (url, loaded, total) => {
   progressBar.value = (loaded / total) * 100 > progressBar.value ? (loaded / total) * 100 : progressBar.value
   
@@ -42,6 +37,11 @@ loadingManager.onLoad = async () => {
 }
 
 const assetLoader = new GLTFLoader(loadingManager)
+
+const laptop = new URL("./assets/laptop/laptop.glb", import.meta.url)
+const room = new URL("./assets/room/office.glb", import.meta.url)
+
+
 assetLoader.load(room.href, (gltf) => {
   const model = gltf.scene
   scene.add(model)
@@ -49,6 +49,7 @@ assetLoader.load(room.href, (gltf) => {
   model.position.set(0, 40, 0)
 
 })
+
 export var laptopLid
 assetLoader.load(laptop.href, (gltf) => {
   const model = gltf.scene
@@ -60,8 +61,8 @@ assetLoader.load(laptop.href, (gltf) => {
 })
 
 
-var lastX, lastY
-const rightWall = device == "desktop" ? camera.rotation.y + 0.1 : camera.rotation.y + 0.5,
+var lastX
+let rightWall = device == "desktop" ? camera.rotation.y + 0.1 : camera.rotation.y + 0.5,
   leftWall = device == "desktop" ? camera.rotation.y - 0.1 : camera.rotation.y - 0.5
 
 export const handleMoveCamera = (e) => {
@@ -74,14 +75,11 @@ export const handleMoveCamera = (e) => {
     }
   }
   lastX = e.pageX
-  lastY = e.pageY
 }
 document.body.onmousemove = handleMoveCamera
-// const controls = new OrbitControls(camera, renderer.domElement)
 
 function animate() {
   requestAnimationFrame(animate)
-  // controls.update()
   renderer.render(scene, camera)
   
 }
