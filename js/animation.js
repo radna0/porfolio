@@ -66,17 +66,16 @@ skillsIcons.forEach((icon,i) => {
             start: 'center bottom',
             scrub: true,
             end: 'bottom top',
-            onToggle: (self) => {
-                if (self.isActive) {
+            onEnter: () => {
                     icon.style.opacity = "1"
                     icon.style.animation = "IconSlide 1s ease"
                     if(!i) document.querySelector(".skillsTitle").style.opacity = "1"
-                } else {
+            },
+            onLeaveBack: () =>{
                     icon.style.opacity = "0"
                     icon.style.animation = ""
                     if (!i) document.querySelector(".skillsTitle").style.opacity = "0"
-                }
-            }
+            },
         }
     });
   
@@ -91,17 +90,16 @@ goalsIcons.forEach((icon,i) => {
             start: 'center bottom',
             scrub: true,
             end: 'bottom top',
-            onToggle: (self) => {
-                if (self.isActive) {
-                    icon.style.opacity = "1"
-                    icon.style.animation = "IconSlide 1s ease"
-                    if(i) document.querySelector(".goalsTitle").style.opacity = "1"
-                } else {
-                    icon.style.opacity = "0"
-                    icon.style.animation = ""
-                    if(i) document.querySelector(".goalsTitle").style.opacity = "0"
-                }
-            }
+            onEnter: () => {
+                icon.style.opacity = "1"
+                icon.style.animation = "IconSlide 1s ease"
+                if(i) document.querySelector(".goalsTitle").style.opacity = "1"
+            },
+            onLeaveBack: () =>{
+                icon.style.opacity = "0"
+                icon.style.animation = ""
+                if(i) document.querySelector(".goalsTitle").style.opacity = "0"
+            },
         }
     });
   
@@ -117,17 +115,17 @@ sections.forEach((section, i) => {
             start: 'top bottom',
             scrub: true,
             end: 'bottom top',
-            onToggle: (self) => {
-                if (self.isActive) {
-                    section.style.opacity = "1"
-                    section.style.animation = "projectBoxSlide 1s ease"
-                    if(!i) document.querySelector(".projectsTitle").style.opacity = "1"
-                } else {
-                    section.style.opacity = "0"
-                    section.style.animation = ""
-                    if(!i) document.querySelector(".projectsTitle").style.opacity = "0"
-                }
-            }
+            onEnter: () => {
+                section.style.opacity = "1"
+                section.style.animation = "projectBoxSlide 1s ease"
+                if(!i) document.querySelector(".projectsTitle").style.opacity = "1"
+            },
+            onLeaveBack: () =>{
+                section.style.opacity = "0"
+                section.style.animation = ""
+                if(!i) document.querySelector(".projectsTitle").style.opacity = "0"
+
+            },
         }
     });
   
