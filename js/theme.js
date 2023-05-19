@@ -54,7 +54,8 @@ const SwitchTheme = () => {
     }
 }
 
-const handleToggleTheme = () => {
+const handleToggleTheme = (e) => {
+    e.stopPropagation()
     toggleCircle.classList.toggle("slide");
     theme = theme === "light" ? "dark" : "light";
     document.body.classList.toggle("darkTheme");
